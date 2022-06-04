@@ -46,13 +46,13 @@ public class Main {
         robotNavigator.navigate();
     }
 
-    private static OutputProcessor getOutputProcessor(Map<String, String> argMap)
+    protected static OutputProcessor getOutputProcessor(Map<String, String> argMap)
             throws IOException, InvalidInputException {
         OutputProcessor outputProcessor;
         if (argMap.containsKey(OUTPUT)) {
             if (argMap.get(OUTPUT).equalsIgnoreCase(TEXT_FILE)) { //Output to text file
                 if (argMap.containsKey(OUTPUT_FILE_PATH)) { //filepath available
-                    outputProcessor = new TextFileOutputProcessor(Paths.get(argMap.get(INPUT_FILE_PATH)));
+                    outputProcessor = new TextFileOutputProcessor(Paths.get(argMap.get(OUTPUT_FILE_PATH)));
                 } else {
                     throw new InvalidInputException(OUTPUT_FILE_PATH + " argument is required.");
                 }
@@ -67,7 +67,7 @@ public class Main {
         return outputProcessor;
     }
 
-    private static InputProcessor getInputProcessor(Map<String, String> argMap)
+    protected static InputProcessor getInputProcessor(Map<String, String> argMap)
             throws IOException, InvalidInputException {
         InputProcessor inputProcessor;
         if (argMap.containsKey(INPUT)) {
@@ -88,7 +88,7 @@ public class Main {
         return inputProcessor;
     }
 
-    public static Map<String, String> parseArguments(String[] args) {
+    protected static Map<String, String> parseArguments(String[] args) {
         Map<String, String> argMap = new HashMap<>();
         for (String arg : args) {
             String[] keyVal = arg.split("=");

@@ -6,7 +6,4 @@ public class InvalidInputException extends Exception {
         super(message);
     }
 
-    public InvalidInputException(String message, Throwable cause) {
-        super(message, cause);
-    }
 }
