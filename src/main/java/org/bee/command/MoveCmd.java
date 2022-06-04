@@ -29,10 +29,8 @@ public class MoveCmd extends AbstractCommand {
             moveSouth(table);
         } else if (table.getRobotDirection() == Direction.WEST) {
             moveWest(table);
-        } else if (table.getRobotDirection() == null) {
-            throw new InvalidInputException("Moved without placing the robot");
         } else {
-            throw new InvalidInputException("Invalid direction: " + table.getRobotDirection());
+            throw new InvalidInputException("Moved without placing the robot");
         }
         log.debug("Moved from ({},{}) to ({},{}).", previousX, previousY, table.getRobotX(), table.getRobotY());
     }
