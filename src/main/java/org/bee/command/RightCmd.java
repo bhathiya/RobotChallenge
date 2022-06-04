@@ -13,7 +13,7 @@ public class RightCmd extends AbstractCommand {
 
     private static final String RIGHT = "RIGHT";
 
-    public RightCmd() {
+    protected RightCmd() {
         super(RIGHT);
     }
 

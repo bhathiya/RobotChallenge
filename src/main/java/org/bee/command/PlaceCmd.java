@@ -7,25 +7,33 @@ import org.bee.model.Direction;
 import org.bee.model.Table;
 import org.bee.output.OutputProcessor;
 
+import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Set;
+
 public class PlaceCmd extends AbstractCommandWithArgs {
 
     private static final Logger log = LogManager.getLogger(PlaceCmd.class);
 
     private static final String PLACE = "PLACE";
 
-    public PlaceCmd(String[] args) {
-        super(PLACE, args);
+    static Set<String> directionSet = new HashSet<>();
+
+    static {
+        for (Direction value : EnumSet.allOf(Direction.class)) {
+            directionSet.add(value.toString());
+        }
     }
 
-    public PlaceCmd() {
-        this(null);
+    protected PlaceCmd() {
+        super(PLACE, null);
     }
 
     @Override
     public void execute(Table table, OutputProcessor out) throws InvalidInputException {
-        int placeX = Integer.parseInt(args[0]);
-        int placeY = Integer.parseInt(args[1]);
-        Direction direction = Direction.valueOf(args[2]);
+        int placeX = Integer.parseInt(getArgs()[0]);
+        int placeY = Integer.parseInt(getArgs()[1]);
+        Direction direction = Direction.valueOf(getArgs()[2]);
 
         if (placeX < table.getSideX() && placeY < table.getSideX()) {
             table.setRobotX(placeX);
@@ -37,4 +45,14 @@ public class PlaceCmd extends AbstractCommandWithArgs {
         }
     }
 
+    @Override
+    protected void setArgs(String[] args) throws InvalidInputException {
+        if (args.length != 3
+                || !args[0].matches("\\d+")
+                || !args[1].matches("\\d+")
+                || !directionSet.contains(args[2])) {
+            throw new InvalidInputException("Invalid input: PLACE " + String.join(",", args));
+        }
+        super.setArgs(args);
+    }
 }

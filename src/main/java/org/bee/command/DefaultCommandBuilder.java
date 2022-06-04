@@ -12,11 +12,7 @@ public class DefaultCommandBuilder extends AbstractCommandBuilder {
             AbstractCommandWithArgs commandObj = argCommandMap.get(commandParts[0]);
             String[] args = commandParts[1].split(",");
             args = Arrays.stream(args).map(String::trim).toArray(String[]::new);
-            if (commandObj == null
-                    || args.length != 3
-                    || !args[0].matches("\\d+")
-                    || !args[1].matches("\\d+")
-                    || !directionSet.contains(args[2])) {
+            if (commandObj == null) {
                 throw new InvalidInputException("Invalid input: " + command);
             }
             commandObj.setArgs(args);

@@ -14,7 +14,7 @@ public class LeftCmd extends AbstractCommand {
 
     private static final String LEFT = "LEFT";
 
-    public LeftCmd() {
+    protected LeftCmd() {
         super(LEFT);
     }
 

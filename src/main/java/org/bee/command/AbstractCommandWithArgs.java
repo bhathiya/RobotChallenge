@@ -1,19 +1,20 @@
 package org.bee.command;
 
+import org.bee.exception.InvalidInputException;
+
 public abstract class AbstractCommandWithArgs extends AbstractCommand {
 
-    public AbstractCommandWithArgs(String command, String[] args) {
+    private String[] args;
+    protected AbstractCommandWithArgs(String command, String[] args) {
         super(command);
         this.args = args;
     }
 
-    protected String[] args = null;
-
-    public void setArgs(String[] args) {
+    protected void setArgs(String[] args) throws InvalidInputException {
         this.args = args;
     }
 
-    public String[] getArgs() {
+    protected String[] getArgs() {
         return args;
     }
 }

@@ -13,7 +13,7 @@ public class MoveCmd extends AbstractCommand {
 
     private static final String MOVE = "MOVE";
 
-    public MoveCmd() {
+    protected MoveCmd() {
         super(MOVE);
     }
 

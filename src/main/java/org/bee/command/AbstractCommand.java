@@ -11,7 +11,7 @@ public abstract class AbstractCommand {
 
     private final String command;
 
-    public AbstractCommand(String command) {
+    protected AbstractCommand(String command) {
         this.command = command;
     }
 

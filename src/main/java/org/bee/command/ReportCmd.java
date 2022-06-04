@@ -14,7 +14,7 @@ public class ReportCmd extends AbstractCommand {
 
     private static final String REPORT = "REPORT";
 
-    public ReportCmd() {
+    protected ReportCmd() {
         super(REPORT);
     }
 

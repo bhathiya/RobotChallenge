@@ -7,14 +7,6 @@ import java.util.*;
 
 public abstract class AbstractCommandBuilder {
 
-    static Set<String> directionSet = new HashSet<>();
-
-    static {
-        for (Direction value : EnumSet.allOf(Direction.class)) {
-            directionSet.add(value.toString());
-        }
-    }
-
     Map<String, AbstractCommand> commandMap;
     Map<String, AbstractCommandWithArgs> argCommandMap;
 
