@@ -24,7 +24,7 @@ public class MainTest {
     @Test
     public void testGetInputProcessor() throws InvalidInputException, IOException {
         Map<String, String> argMap = new HashMap<>() {{
-            put("input", "txtFile");
+            put("input", "TextFile");
             put("inputFilePath", "/home/me/in.txt");
         }};
 
@@ -50,7 +50,7 @@ public class MainTest {
     public Object[][] invalidInputDataProvider1() {
         return new Object[][]{
                 {new HashMap<>() {{
-                    put("input", "txtFile");
+                    put("input", "TextFile");
                 }}},
                 {new HashMap<>() {{
                     put("input", "invalid");
@@ -68,7 +68,7 @@ public class MainTest {
     @Test
     public void testGetOutputProcessor() throws InvalidInputException, IOException {
         Map<String, String> argMap = new HashMap<>() {{
-            put("output", "txtFile");
+            put("output", "TextFile");
             put("outputFilePath", "/home/me/out.txt");
         }};
 
@@ -94,7 +94,7 @@ public class MainTest {
     public Object[][] invalidOutputDataProvider() {
         return new Object[][]{
                 {new HashMap<>() {{
-                    put("output", "txtFile");
+                    put("output", "TextFile");
                 }}},
                 {new HashMap<>() {{
                     put("output", "invalid");
@@ -112,17 +112,25 @@ public class MainTest {
     @Test
     public void testParseArguments() {
         String[] args = new String[]{
-                "--input=txtFile",
+                "--input=TextFile",
                 "--inputFilePath=/home/me/in.txt",
                 "--outputFilePath=/home/me/out.txt",
                 "--kkkk=vvvv",
+                "--aaa=",
+                "--debug",
+                "--=",
+                "--",
+                "-",
                 "--111=222"
         };
         Map<String, String> expectedArgMap = new HashMap<>() {{
-            put("input", "txtFile");
+            put("input", "TextFile");
             put("inputFilePath", "/home/me/in.txt");
             put("outputFilePath", "/home/me/out.txt");
             put("kkkk", "vvvv");
+            put("aaa", null);
+            put("debug", null);
+            put("", null);
             put("111", "222");
         }};
         Map<String, String> argMap = Main.parseArguments(args);

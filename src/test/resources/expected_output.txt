@@ -1,4 +1,6 @@
+Robot Challenge Started! Awaiting input...
 Output: 0,1,NORTH
 Output: 0,0,WEST
 Output: 3,3,NORTH
 Output: 4,0,EAST
+Robot Challenge Finished!

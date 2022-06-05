@@ -41,7 +41,7 @@ public class PlaceCmd extends AbstractCommandWithArgs {
             table.setRobotDirection(direction);
             log.debug("Placed the robot at ({},{}) facing {}.", placeX, placeY, direction);
         } else {
-            log.debug("Ignored placing at invalid location: ({},{}).", placeX, placeY);
+            log.debug("Can't place at invalid location: ({},{}).", placeX, placeY);
         }
     }
 

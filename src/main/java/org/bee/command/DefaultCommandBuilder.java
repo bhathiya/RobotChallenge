@@ -7,6 +7,10 @@ import java.util.Arrays;
 public class DefaultCommandBuilder extends AbstractCommandBuilder {
 
     public AbstractCommand getCommandObject(String command) throws InvalidInputException {
+        if (command == null) {
+            throw new InvalidInputException("Invalid input: null");
+        }
+        command = command.toUpperCase();
         if (command.trim().contains(" ")) {
             String[] commandParts = command.split("\\s+", 2);
             AbstractCommandWithArgs commandObj = argCommandMap.get(commandParts[0]);

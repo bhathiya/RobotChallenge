@@ -14,12 +14,12 @@ PLACE 0,0,NORTH
 LEFT
 REPORT
 
-PLACE 1,2,EAST
-MOVE
-MOVE
-LEFT
-MOVE
-REPORT
+place 1,2,east
+move
+move
+left
+move
+report
 
 PLACE 0,0,WEST
 MOVE

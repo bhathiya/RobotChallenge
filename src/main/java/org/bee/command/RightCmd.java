@@ -29,7 +29,7 @@ public class RightCmd extends AbstractCommand {
         } else if (table.getRobotDirection() == Direction.WEST) {
             table.setRobotDirection(Direction.NORTH);
         } else {
-            log.debug("Turned Right from invalid direction: {}.", previousDirection);
+            log.debug("Can't turn right without placing the robot");
             throw new InvalidInputException("Turned Right without placing the robot");
         }
         log.debug("Turned Right from {} to {}.", previousDirection, table.getRobotDirection());

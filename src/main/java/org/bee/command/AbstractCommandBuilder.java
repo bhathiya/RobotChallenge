@@ -1,9 +1,9 @@
 package org.bee.command;
 
 import org.bee.exception.InvalidInputException;
-import org.bee.model.Direction;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class AbstractCommandBuilder {
 

@@ -3,7 +3,6 @@ package org.bee.command;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bee.exception.InvalidInputException;
-import org.bee.model.AbstractTable;
 import org.bee.model.Direction;
 import org.bee.model.Table;
 import org.bee.output.OutputProcessor;
@@ -30,7 +29,7 @@ public class LeftCmd extends AbstractCommand {
         } else if (table.getRobotDirection() == Direction.WEST) {
             table.setRobotDirection(Direction.SOUTH);
         } else {
-            log.debug("Turned Left from invalid direction: {}.", previousDirection);
+            log.debug("Can't turn left without placing the robot");
             throw new InvalidInputException("Turned Left without placing the robot");
         }
         log.debug("Turned Left from {} to {}.", previousDirection, table.getRobotDirection());

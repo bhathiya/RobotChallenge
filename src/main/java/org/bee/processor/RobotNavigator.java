@@ -30,6 +30,7 @@ public class RobotNavigator {
 
     public void navigate() {
         try {
+            outputProcessor.sendOutput("Robot Challenge Started! Awaiting input...\n");
             String strCommand;
             while (true) {
                 strCommand = inputProcessor.readNextLine();
@@ -54,6 +55,7 @@ public class RobotNavigator {
                 log.error(e);
             }
             try {
+                outputProcessor.sendOutput("Robot Challenge Finished!\n");
                 outputProcessor.complete();
             } catch (IOException e) {
                 log.error(e);

@@ -21,8 +21,8 @@ public class ReportCmd extends AbstractCommand {
     @Override
     public void execute(Table table, OutputProcessor out) throws IOException, InvalidInputException {
         if (table.getRobotDirection() == null) {
-            log.debug("Report called without placing the robot");
-            throw new InvalidInputException("Turned Right without placing the robot");
+            log.debug("Can't report without placing the robot");
+            throw new InvalidInputException("Report called without placing the robot");
         }
 
         String message = String.format("Output: %d,%d,%s\n",

@@ -1,5 +1,9 @@
 package org.bee;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.core.config.Configuration;
 import org.bee.command.DefaultCommandBuilder;
 import org.bee.exception.InvalidInputException;
 import org.bee.input.InputProcessor;
@@ -19,9 +23,10 @@ import java.util.Map;
 public class Main {
 
     private static final String SIDE = "side";
+    private static final String DEBUG = "debug";
     private static final String INPUT = "input";
     private static final String OUTPUT = "output";
-    private static final String TEXT_FILE = "txtFile";
+    private static final String TEXT_FILE = "TextFile";
     private static final String STD_IN = "stdIn";
     private static final String STD_OUT = "stdOut";
     private static final String INPUT_FILE_PATH = "inputFilePath";
@@ -32,6 +37,12 @@ public class Main {
     public static void main(String[] args) throws InvalidInputException, IOException {
 
         Map<String, String> argMap = parseArguments(args);
+
+        if (argMap.containsKey(DEBUG)) {
+            setLogLevel(Level.DEBUG);
+        } else {
+            setLogLevel(Level.INFO);
+        }
 
         if (argMap.containsKey(SIDE) && argMap.get(SIDE).matches("\\d+")) {
             tableSide = Integer.parseInt(argMap.get(SIDE));
@@ -91,9 +102,23 @@ public class Main {
     protected static Map<String, String> parseArguments(String[] args) {
         Map<String, String> argMap = new HashMap<>();
         for (String arg : args) {
+            if (arg.length() <= 2 || !arg.startsWith("--")) {
+                continue;
+            }
             String[] keyVal = arg.split("=");
-            argMap.put(keyVal[0].substring(2), keyVal[1]);
+            if (keyVal.length > 1) {
+                argMap.put(keyVal[0].substring(2), keyVal[1]);
+            } else {
+                argMap.put(keyVal[0].substring(2), null);
+            }
         }
         return argMap;
+    }
+
+    private static void setLogLevel(Level logLevel) {
+        LoggerContext ctx = (LoggerContext) LogManager.getContext(LogManager.class.getClassLoader(), false);
+        Configuration conf = ctx.getConfiguration();
+        conf.getLoggerConfig("org.bee").setLevel(logLevel);
+        ctx.updateLoggers(conf);
     }
 }
