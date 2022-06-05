@@ -65,7 +65,7 @@ public class Main {
                 if (argMap.containsKey(OUTPUT_FILE_PATH)) { //filepath available
                     outputProcessor = new TextFileOutputProcessor(Paths.get(argMap.get(OUTPUT_FILE_PATH)));
                 } else {
-                    throw new InvalidInputException(OUTPUT_FILE_PATH + " argument is required.");
+                    throw new InvalidInputException("--" + OUTPUT_FILE_PATH + "=?? argument is required.");
                 }
             } else if (argMap.get(OUTPUT).equalsIgnoreCase(STD_OUT)) { //output to stdout
                 outputProcessor = new StdOutputProcessor();
@@ -86,7 +86,7 @@ public class Main {
                 if (argMap.containsKey(INPUT_FILE_PATH)) { //filepath available
                     inputProcessor = new TextFileInputProcessor(Paths.get(argMap.get(INPUT_FILE_PATH)));
                 } else {
-                    throw new InvalidInputException(INPUT_FILE_PATH + " argument is required.");
+                    throw new InvalidInputException("--" + INPUT_FILE_PATH + "=?? argument is required.");
                 }
             } else if (argMap.get(INPUT).equalsIgnoreCase(STD_IN)) { //input from stdin
                 inputProcessor = new StdInputProcessor();
