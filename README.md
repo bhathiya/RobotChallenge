@@ -10,10 +10,14 @@
 - Docker
 
 ## Steps:
-1. Pull docker image.
+1. Pull docker image based on your processor architecture.
 
 ```shell
-docker pull bhathiya/robot-challenge
+docker pull bhathiya/robot-challenge:arm64-latest
+```
+or
+```shell
+docker pull bhathiya/robot-challenge:amd64-latest
 ```
 
 2. Start a docker container and go inside it.  
