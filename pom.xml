@@ -110,6 +110,13 @@
                                     <tag>latest</tag>
                                     <tag>${project.version}</tag>
                                 </tags>
+                                <buildx>
+                                    <platforms>
+                                        <platform>linux/arm64</platform>
+                                        <platform>linux/amd64</platform>
+                                        <platform>linux/arm64/v8</platform>
+                                    </platforms>
+                                </buildx>
                             </build>
                         </image>
                     </images>
