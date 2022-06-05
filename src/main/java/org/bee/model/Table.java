@@ -1,11 +1,13 @@
 package org.bee.model;
 
-public class Table extends AbstractTable {
+/**
+ * Represents the tabletop on which the robot moves.
+ */
+public class Table {
     private final int sideX;
     private final int sideY;
     private int robotX;
     private int robotY;
-
     private Direction robotDirection;
 
     public Table(int side) {

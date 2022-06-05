@@ -11,6 +11,9 @@ import org.bee.output.OutputProcessor;
 
 import java.io.IOException;
 
+/**
+ * This class receives inputs, navigates the robot based on them, and writes messages out.
+ */
 public class RobotNavigator {
 
     private static final Logger log = LogManager.getLogger(RobotNavigator.class);
@@ -28,6 +31,9 @@ public class RobotNavigator {
         this.table = table;
     }
 
+    /**
+     * Navigates the robot based on input and sends output out.
+     */
     public void navigate() {
         try {
             outputProcessor.sendOutput("Robot Challenge Started! Awaiting input...\n");

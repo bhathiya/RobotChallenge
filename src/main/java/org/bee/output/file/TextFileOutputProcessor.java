@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Responsible for sending responses out to text files.
+ */
 public class TextFileOutputProcessor extends FileOutputProcessor {
 
     BufferedWriter fileWriter;

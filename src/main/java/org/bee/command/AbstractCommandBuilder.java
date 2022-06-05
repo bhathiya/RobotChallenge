@@ -5,9 +5,19 @@ import org.bee.exception.InvalidInputException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Abstract builder class to build {@link AbstractCommand}`s.
+ */
 public abstract class AbstractCommandBuilder {
 
+    /**
+     * Keeps commands that don't have arguments.
+     */
     Map<String, AbstractCommand> commandMap;
+
+    /**
+     * Keeps the commands that have arguments.
+     */
     Map<String, AbstractCommandWithArgs> argCommandMap;
 
     public AbstractCommandBuilder() {
@@ -26,6 +36,13 @@ public abstract class AbstractCommandBuilder {
         argCommandMap.put(placeCmd.getCommandAction(), placeCmd);
     }
 
+    /**
+     * Build command object corresponding to given string command.
+     *
+     * @param command   String command
+     * @return  Corresponding command object
+     * @throws InvalidInputException    Invalid Input Exception
+     */
     public abstract AbstractCommand getCommandObject(String command) throws InvalidInputException;
 
 }

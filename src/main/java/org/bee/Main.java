@@ -57,6 +57,14 @@ public class Main {
         robotNavigator.navigate();
     }
 
+    /**
+     * Instantiate an {@link OutputProcessor} based on user input
+     *
+     * @param argMap    User input map
+     * @return  Corresponding {@link OutputProcessor}
+     * @throws IOException  IO Exception
+     * @throws InvalidInputException    Invalid User Input Exception
+     */
     protected static OutputProcessor getOutputProcessor(Map<String, String> argMap)
             throws IOException, InvalidInputException {
         OutputProcessor outputProcessor;
@@ -78,6 +86,14 @@ public class Main {
         return outputProcessor;
     }
 
+    /**
+     * Instantiate an {@link InputProcessor} based on user input
+     *
+     * @param argMap    User input map
+     * @return  Corresponding {@link InputProcessor}
+     * @throws IOException  IO Exception
+     * @throws InvalidInputException    Invalid User Input Exception
+     */
     protected static InputProcessor getInputProcessor(Map<String, String> argMap)
             throws IOException, InvalidInputException {
         InputProcessor inputProcessor;
@@ -99,6 +115,12 @@ public class Main {
         return inputProcessor;
     }
 
+    /**
+     * Parse user input String array to a map.
+     *
+     * @param args  User input array
+     * @return  User input map
+     */
     protected static Map<String, String> parseArguments(String[] args) {
         Map<String, String> argMap = new HashMap<>();
         for (String arg : args) {
@@ -115,6 +137,11 @@ public class Main {
         return argMap;
     }
 
+    /**
+     * Sets log level of the application
+     *
+     * @param logLevel  Log level. Eg. INFO, DEBUG, ERROR etc.
+     */
     private static void setLogLevel(Level logLevel) {
         LoggerContext ctx = (LoggerContext) LogManager.getContext(LogManager.class.getClassLoader(), false);
         Configuration conf = ctx.getConfiguration();

@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Processes text files as inputs
+ */
 public class TextFileInputProcessor extends FileInputProcessor {
 
     BufferedReader fileReader;

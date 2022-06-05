@@ -4,6 +4,9 @@ import org.bee.exception.InvalidInputException;
 
 import java.util.Arrays;
 
+/**
+ * Default implementation of {@link AbstractCommandBuilder}
+ */
 public class DefaultCommandBuilder extends AbstractCommandBuilder {
 
     public AbstractCommand getCommandObject(String command) throws InvalidInputException {

@@ -11,6 +11,9 @@ import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Represents PLACE X,Y,DIRECTION Command
+ */
 public class PlaceCmd extends AbstractCommandWithArgs {
 
     private static final Logger log = LogManager.getLogger(PlaceCmd.class);
@@ -29,6 +32,13 @@ public class PlaceCmd extends AbstractCommandWithArgs {
         super(PLACE, null);
     }
 
+    /**
+     * Places the robot in the given position facing the given direction.
+     *
+     * @param table Table representing the valid area of movement.
+     * @param out   Output processor for output messages.
+     * @throws InvalidInputException Invalid Input Exception
+     */
     @Override
     public void execute(Table table, OutputProcessor out) throws InvalidInputException {
         int placeX = Integer.parseInt(getArgs()[0]);

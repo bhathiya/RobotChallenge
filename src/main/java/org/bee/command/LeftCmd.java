@@ -7,6 +7,9 @@ import org.bee.model.Direction;
 import org.bee.model.Table;
 import org.bee.output.OutputProcessor;
 
+/**
+ * Represents LEFT Command
+ */
 public class LeftCmd extends AbstractCommand {
 
     private static final Logger log = LogManager.getLogger(LeftCmd.class);
@@ -17,6 +20,13 @@ public class LeftCmd extends AbstractCommand {
         super(LEFT);
     }
 
+    /**
+     * Turns the robot to the left.
+     *
+     * @param table Table representing the valid area of movement.
+     * @param out   Output processor for output messages.
+     * @throws InvalidInputException Invalid Input Exception
+     */
     @Override
     public void execute(Table table, OutputProcessor out) throws InvalidInputException {
         Direction previousDirection = table.getRobotDirection();

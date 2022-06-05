@@ -7,6 +7,9 @@ import org.bee.model.Direction;
 import org.bee.model.Table;
 import org.bee.output.OutputProcessor;
 
+/**
+ * Represents MOVE Command
+ */
 public class MoveCmd extends AbstractCommand {
 
     private static final Logger log = LogManager.getLogger(MoveCmd.class);
@@ -17,6 +20,13 @@ public class MoveCmd extends AbstractCommand {
         super(MOVE);
     }
 
+    /**
+     * Move the robot 1 step forward.
+     *
+     * @param table Table representing the valid area of movement.
+     * @param out   Output processor for output messages.
+     * @throws InvalidInputException Invalid Input Exception
+     */
     @Override
     public void execute(Table table, OutputProcessor out) throws InvalidInputException {
         int previousX = table.getRobotX();
