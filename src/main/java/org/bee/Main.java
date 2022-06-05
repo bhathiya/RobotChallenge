@@ -27,8 +27,8 @@ public class Main {
     private static final String INPUT = "input";
     private static final String OUTPUT = "output";
     private static final String TEXT_FILE = "TextFile";
-    private static final String STD_IN = "stdIn";
-    private static final String STD_OUT = "stdOut";
+    private static final String STD_IN = "StdIn";
+    private static final String STD_OUT = "StdOut";
     private static final String INPUT_FILE_PATH = "inputFilePath";
     private static final String OUTPUT_FILE_PATH = "outputFilePath";
 

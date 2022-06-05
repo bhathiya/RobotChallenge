@@ -40,7 +40,7 @@ public class MainTest {
         assertTrue(in instanceof StdInputProcessor);
 
         argMap = new HashMap<>() {{
-            put("input", "stdIn");
+            put("input", "StdIn");
         }};
         in = Main.getInputProcessor(argMap);
         assertTrue(in instanceof StdInputProcessor);
@@ -84,7 +84,7 @@ public class MainTest {
         assertTrue(out instanceof StdOutputProcessor);
 
         argMap = new HashMap<>() {{
-            put("output", "stdOut");
+            put("output", "StdOut");
         }};
         out = Main.getOutputProcessor(argMap);
         assertTrue(out instanceof StdOutputProcessor);
