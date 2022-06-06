@@ -64,7 +64,8 @@ public class DefaultCommandBuilderTest {
                 {"LEFT 1,1,NORTH"},
                 {"INVALID"},
                 {"INVALID 1,1,SOUTH"},
-                {"PLACE 1,1,1,NORTH"}
+                {"PLACE 1,1,1,NORTH"},
+                {null, ""}
         };
     }
 
