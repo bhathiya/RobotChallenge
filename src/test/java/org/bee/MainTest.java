@@ -121,6 +121,7 @@ public class MainTest {
                 "--=",
                 "--",
                 "-",
+                "args",
                 "--111=222"
         };
         Map<String, String> expectedArgMap = new HashMap<>() {{
