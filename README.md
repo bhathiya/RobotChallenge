@@ -10,27 +10,21 @@
 - Docker
 
 ## Steps:
-1. Pull docker image based on your processor architecture.
+1. Pull and run the docker image based on your processor architecture, and go inside it.
 
 ```shell
-docker pull bhathiya/robot-challenge:arm64-latest
+docker run -it bhathiya/robot-challenge:arm64-latest bash
 ```
 or
 ```shell
-docker pull bhathiya/robot-challenge:amd64-latest
+docker run -it bhathiya/robot-challenge:amd64-latest bash
 ```
 
-2. Start a docker container and go inside it.  
-
-```shell
-docker run -it bhathiya/robot-challenge bash
-```
-
-3. Run the application in one of the below methods. 
+2. Run the application in one of the below methods. 
 
 **A) Console input and output (Default)**
 ```shell
-$ java -jar robot-challenge.jar --debug
+java -jar robot-challenge.jar --debug
 ```
 > **Note:** `--debug` prints debug logs.
 
