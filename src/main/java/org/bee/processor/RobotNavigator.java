@@ -40,7 +40,7 @@ public class RobotNavigator {
             String strCommand;
             while (true) {
                 strCommand = inputProcessor.readNextLine();
-                if (strCommand == null || strCommand.isEmpty()) {
+                if (strCommand == null) {
                     break;
                 }
                 AbstractCommand command;
